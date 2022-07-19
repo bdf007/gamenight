@@ -21,6 +21,10 @@ code {
   pointer-events: none;
 }
 
+.homepageComponent {
+  border: 1px solid #282c34;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -28,7 +32,7 @@ code {
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #3b7af7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
