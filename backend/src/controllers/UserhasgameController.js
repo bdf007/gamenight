@@ -1,8 +1,9 @@
+/* eslint-disable camelcase */
 const models = require("../models");
 
-class ItemController {
+class UserhasgameController {
   static browse = (req, res) => {
-    models.item
+    models.users_has_games
       .findAll()
       .then(([rows]) => {
         res.send(rows);
@@ -14,13 +15,13 @@ class ItemController {
   };
 
   static read = (req, res) => {
-    models.item
+    models.users_has_games
       .find(req.params.id)
       .then(([rows]) => {
         if (rows[0] == null) {
           res.sendStatus(404);
         } else {
-          res.send(rows[0]);
+          res.send(rows);
         }
       })
       .catch((err) => {
@@ -30,14 +31,11 @@ class ItemController {
   };
 
   static edit = (req, res) => {
-    const item = req.body;
+    const users_has_games = req.body;
+    users_has_games.id = parseInt(req.params.id, 10);
 
-    // TODO validations (length, format...)
-
-    item.id = parseInt(req.params.id, 10);
-
-    models.item
-      .update(item)
+    models.users_has_games
+      .update(users_has_games)
       .then(([result]) => {
         if (result.affectedRows === 0) {
           res.sendStatus(404);
@@ -52,14 +50,12 @@ class ItemController {
   };
 
   static add = (req, res) => {
-    const item = req.body;
+    const users_has_games = req.body;
 
-    // TODO validations (length, format...)
-
-    models.item
-      .insert(item)
-      .then(([result]) => {
-        res.status(201).send({ ...item, id: result.insertId });
+    models.users_has_games
+      .insert(users_has_games)
+      .then(() => {
+        res.status(201).send({ ...users_has_games });
       })
       .catch((err) => {
         console.error(err);
@@ -68,7 +64,7 @@ class ItemController {
   };
 
   static delete = (req, res) => {
-    models.item
+    models.users_has_games
       .delete(req.params.id)
       .then(() => {
         res.sendStatus(204);
@@ -79,5 +75,4 @@ class ItemController {
       });
   };
 }
-
-module.exports = ItemController;
+module.exports = UserhasgameController;
