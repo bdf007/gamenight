@@ -1,11 +1,18 @@
 // eslint-disable-next-line import/no-unresolved
-import Counter from "@components/Counter";
+import Appel from "@components/Appel";
+// eslint-disable-next-line import/no-unresolved
+import Navbar from "@components/navbar";
 
 export default function Home() {
   return (
-    <header className="App-header">
-      <h1>GAME NIGHT HOMEPAGE</h1>
-      <Counter />
-    </header>
+    <div className="homePage">
+      {/* <header className="App-header"> */}
+      <Navbar />
+      {/* </header> */}
+      <div className="homeAppel">
+        <h1>Welcome To Your Game Night Helper</h1>
+        <Appel />
+      </div>
+    </div>
   );
 }

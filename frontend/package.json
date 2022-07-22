@@ -10,10 +10,14 @@
     "fix": "prettier --write . && eslint --fix --ext .jsx ."
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "template-fullstack": "file:.."
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "template-fullstack": "file:..",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
